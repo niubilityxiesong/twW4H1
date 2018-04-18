@@ -11,9 +11,9 @@ import static org.mockito.Mockito.when;
 
 public class LibraryTest {
     @Test
-    public void testSomeLibraryMethod() {
+    public void testMakeAChoice() {
         Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+        assertTrue("someLibraryMethod should return 'true'", classUnderTest.MakeAChoice());
     }
 
     @Test
