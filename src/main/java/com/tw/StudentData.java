@@ -3,9 +3,9 @@ package com.tw;
 public class StudentData {
     int id;
     String name = new String();
-    int mathgread, Chinesegread, englishgread, programminggread;
+    double mathgread, Chinesegread, englishgread, programminggread;
 
-    public StudentData(int idnum, String buff, int math, int Chinese, int english, int programming){
+    public StudentData(int idnum, String buff, double math, double Chinese, double english, double programming){
 
         id = idnum;
         name = buff;
