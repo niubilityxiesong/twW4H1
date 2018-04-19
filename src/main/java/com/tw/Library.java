@@ -14,6 +14,11 @@ public class Library {
         inputnum = -1;
     }
 
+    public Library(int intonum , String array){
+        inputchar = array;
+        inputnum = intonum;
+    }
+
     public void  PrintMainWindows() {
 
         Scanner inputall = new Scanner(System.in);
@@ -36,12 +41,14 @@ public class Library {
             case 1:
                 addnewstudent();
                 inputnum = -1;
+                inputchar = null;
                 PrintMainWindows();
                 break;
 
             case 2:
                 GetAList();
                 inputchar = null;
+                inputnum = -1;
                 PrintMainWindows();
                 break;
 
@@ -57,12 +64,17 @@ public class Library {
         return true;
     }
 
-    public void addnewstudent(){
+    public StudentData addnewstudent(){
 
-        Scanner inputall = new Scanner(System.in);
+        if(inputchar == null){
+            Scanner inputall = new Scanner(System.in);
 
-        System.out.println("请输入学生信息（格式：姓名, 学号, 学科: 成绩, ...），按回车提交：");
-        inputchar = inputall.nextLine();
+            System.out.println("请输入学生信息（格式：姓名, 学号, 学科: 成绩, ...），按回车提交：");
+            inputchar = inputall.nextLine();
+        }
+        else {
+            System.out.println("请输入学生信息（格式：姓名, 学号, 学科: 成绩, ...），按回车提交：");
+        }
 
         if(inputchar.length() < 2){
             System.out.println("请按正确的格式输入（格式：姓名, 学号, 学科: 成绩, ...）：");
@@ -127,6 +139,7 @@ public class Library {
         System.out.print("学生");
         System.out.print(name);
         System.out.println("的成绩被添加");
+        return tempstd;
     }
 
     public int FindSubject(String array){
@@ -147,10 +160,14 @@ public class Library {
 
     public boolean GetAList(){
 
-        Scanner inputall = new Scanner(System.in);
-
-        System.out.println("请输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：");
-        inputchar = inputall.nextLine();
+        if(inputchar == null){
+            Scanner inputall = new Scanner(System.in);
+            System.out.println("请输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：");
+            inputchar = inputall.nextLine();
+        }
+        else {
+            System.out.println("请输入要打印的学生的学号2（格式： 学号, 学号,...），按回车提交：");
+        }
 
         if(inputchar.length() == 0 || inputchar.charAt(0) > '9' || inputchar.charAt(0) < '0'){
             System.out.println("请按正确的格式输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：");
